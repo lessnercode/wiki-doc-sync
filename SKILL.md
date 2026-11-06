@@ -71,7 +71,7 @@ INGEST <filename>
 Read your vault's ingest conventions (e.g. `wiki/CLAUDE.md` and `wiki/00-meta/schema.md`) before each ingest. Log to `changelog.md`, update `index.md`.
 
 ## Tracked products
-The script covers 14 products: Cloud Clusters (NC2), GC2, Flow Virtual Networking, Flow standalone, Nutanix Disaster Recovery, Files, NKP, Prism, NCM, AOS Security, Enterprise AI, NDB, Nutanix Central, Foundation.
+The script covers 18 portal products already in the wiki: Data Lens, Cloud Clusters (NC2), GC2, Flow Virtual Networking, Flow standalone, Nutanix Disaster Recovery, Files, NKP, Prism, NCM (Next-Gen), Cost Governance, Intelligent Operations, AOS Security, Enterprise AI, NDB, Nutanix Central, Foundation, LCM.
 
 To add a new product: edit `PRODUCT_MAP` in `fetch-portal-docs.py` and add the portal `filterVal` name alongside keyword patterns matching its existing source files.
 

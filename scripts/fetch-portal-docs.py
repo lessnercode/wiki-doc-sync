@@ -44,6 +44,7 @@ LAUNCH_ARGS = ['--no-sandbox', '--disable-dev-shm-usage', '--disable-crash-repor
 # Maps portal filterVal to source file keyword patterns already in the wiki.
 # Only products with existing source files are listed here.
 PRODUCT_MAP = {
+    'Data Lens': ['Data-Lens'],
     'Cloud Clusters (NC2)': ['nc2-aws', 'nc2-azure', 'nc2-gcp', 'tn-2028', 'tn-2156', 'nc2-7.', '7.6---whats-new'],
     'Government Cloud Clusters (GC2)': ['gc2', 'gov-cloud', 'tn-2013', 'Government-Cloud-Clusters'],
     'Flow Virtual Networking': ['flow-vn'],

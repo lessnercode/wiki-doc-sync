@@ -6,6 +6,8 @@ It checks the portal for newer versions of documents you have already sourced, f
 
 It does **not** discover new products. It only tracks what your vault already covers.
 
+Data Lens is supported when your vault already contains source files matching `Data-Lens`.
+
 ## Install
 
 ```bash
