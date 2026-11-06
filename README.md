@@ -10,10 +10,22 @@ Data Lens is supported when your vault already contains source files matching `D
 
 ## Install
 
+Requires Python 3.10–3.14. [MarkItDown](https://github.com/microsoft/markitdown) is required to convert source documents to Markdown; Playwright and Chromium handle portal access.
+
 ```bash
+python3 --version
 git clone https://github.com/lessnercode/wiki-doc-sync ~/.claude/skills/wiki-doc-sync
 pip install playwright && playwright install chromium
+python3 -m pip install --target "$HOME/.local/markitdown-lib" 'markitdown[all]'
 export WIKI_PATH=~/path/to/your-vault/wiki
+```
+
+The MarkItDown install command includes its optional format dependencies and installs into the default `MARKITDOWN_LIB` directory used by `convert-source.sh`.
+
+Verify the MarkItDown installation:
+
+```bash
+PYTHONPATH="${MARKITDOWN_LIB:-$HOME/.local/markitdown-lib}" python3 -m markitdown --help
 ```
 
 ## Vault layout
@@ -43,6 +55,13 @@ python3 scripts/fetch-portal-docs.py --cookies-file ~/.config/nutanix-cookies.js
 
 # convert a downloaded doc to Markdown for ingest
 scripts/convert-source.sh "$WIKI_PATH/01-sources/<file>.pdf"
+```
+
+Conversion writes `<file>.md` beside the original document. To choose a different output path, pass it as the second argument:
+
+```bash
+scripts/convert-source.sh "$WIKI_PATH/01-sources/<file>.pdf" \
+  "/path/to/output.md"
 ```
 
 Full workflow, including the ingest step, is in [SKILL.md](SKILL.md).
