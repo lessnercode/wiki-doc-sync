@@ -2,11 +2,9 @@
 
 A [Claude Code](https://claude.com/claude-code) skill that keeps an **Obsidian wiki vault** in sync with the [Nutanix support portal](https://portal.nutanix.com).
 
-It checks the portal for newer versions of documents you have already sourced, flags version drift and gaps, and downloads the new PDFs into your vault's `01-sources/` folder ready for ingest.
+It checks configured Nutanix products for missing documents and newer versions, flags version drift and gaps, and downloads flagged PDFs into your vault's `01-sources/` folder ready for ingest.
 
-It does **not** discover new products. It only tracks what your vault already covers.
-
-Data Lens is supported when your vault already contains source files matching `Data-Lens`.
+Products and source filename patterns are configured in [`PRODUCT_MAP`](scripts/fetch-portal-docs.py). Every configured product is checked, including products with no local source files. Filename patterns match existing sources without regard to case. Portal documents without a local match are reported as gaps. To track another product, add its portal name and source filename patterns to `PRODUCT_MAP`.
 
 ## Install
 
